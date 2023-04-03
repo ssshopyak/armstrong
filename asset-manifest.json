@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/armstrong/static/css/main.267be62e.chunk.css",
+    "main.js": "/armstrong/static/js/main.07685319.chunk.js",
+    "main.js.map": "/armstrong/static/js/main.07685319.chunk.js.map",
+    "runtime-main.js": "/armstrong/static/js/runtime-main.fcbeadfb.js",
+    "runtime-main.js.map": "/armstrong/static/js/runtime-main.fcbeadfb.js.map",
+    "static/js/2.8333fc3c.chunk.js": "/armstrong/static/js/2.8333fc3c.chunk.js",
+    "static/js/2.8333fc3c.chunk.js.map": "/armstrong/static/js/2.8333fc3c.chunk.js.map",
+    "index.html": "/armstrong/index.html",
+    "precache-manifest.20147fde68e532b7ea23f7952ad7f678.js": "/armstrong/precache-manifest.20147fde68e532b7ea23f7952ad7f678.js",
+    "service-worker.js": "/armstrong/service-worker.js",
+    "static/css/main.267be62e.chunk.css.map": "/armstrong/static/css/main.267be62e.chunk.css.map",
+    "static/js/2.8333fc3c.chunk.js.LICENSE.txt": "/armstrong/static/js/2.8333fc3c.chunk.js.LICENSE.txt",
+    "static/media/Logo.png": "/armstrong/static/media/Logo.cdfe38b9.png",
+    "static/media/aboutus.jpg": "/armstrong/static/media/aboutus.ac219878.jpg",
+    "static/media/email.png": "/armstrong/static/media/email.20783735.png",
+    "static/media/guarantee.png": "/armstrong/static/media/guarantee.3ce6ca34.png",
+    "static/media/location.png": "/armstrong/static/media/location.d2631c18.png",
+    "static/media/support.png": "/armstrong/static/media/support.994bbde2.png",
+    "static/media/tracking.png": "/armstrong/static/media/tracking.5ff8a1ee.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fcbeadfb.js",
+    "static/js/2.8333fc3c.chunk.js",
+    "static/css/main.267be62e.chunk.css",
+    "static/js/main.07685319.chunk.js"
+  ]
+}
