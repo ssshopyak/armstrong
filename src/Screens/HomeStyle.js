@@ -1,7 +1,7 @@
 const styles = {
-    conatiner : {
-        minHeight:'100vh'
-    }
-}
+  conatiner: {
+    minHeight: '100vh',
+  },
+};
 
-export default styles
+export default styles;

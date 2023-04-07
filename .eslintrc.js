@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2020: true
   },
   extends: [
     'plugin:react/recommended',
@@ -10,12 +10,13 @@ module.exports = {
   overrides: [
   ],
   parserOptions: {
-    ecmaVersion: 'latest',
+    ecmaVersion: 11,
     sourceType: 'module'
   },
   plugins: [
     'react'
   ],
   rules: {
+    "max-len": ["warn", { code: 120, ignoreComments: true }],
   }
 }
