@@ -1,0 +1,7 @@
+export const LandscapingText = [
+  'At Armstrong Housing LLC, we offer a wide range of landscaping services to help you create and maintain a beautiful outdoor space. Our team of experts has the knowledge and experience to design, install, and maintain everything from gardens and hardscapes to irrigation systems and lighting.',
+  'We work closely with our clients to understand their vision and preferences, and we offer customized solutions that meet their unique needs and requirements. Whether you want to create a new landscape design, maintain an existing one, or add special features to your outdoor space, we have the expertise and skills to make it happen.',
+  'Our landscaping services include Bush cutting, Grass cutting, Tree cutting. We use only the best materials and equipment to ensure that your outdoor space is beautiful, functional, and durable.',
+  'We also offer maintenance services to keep your outdoor space looking its best, year after year. Our team of experts will work with you to create a maintenance plan that meets your needs and budget, ensuring that your outdoor space remains healthy, vibrant, and beautiful.',
+  'Contact us today to learn more about our landscaping services and how we can help you create and maintain a beautiful outdoor space. With our comprehensive landscaping services, we have everything you need to transform your outdoor space into a beautiful oasis.',
+];

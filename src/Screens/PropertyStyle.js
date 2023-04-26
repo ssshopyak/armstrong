@@ -2,6 +2,7 @@
 const styles = {
   conatiner: {
     minHeight: '100vh',
+    background: '#fff',
   },
   bodyContainer: {
     marginTop: '100px',
@@ -13,13 +14,11 @@ const styles = {
   textContainer: {
     display: 'flex',
     flexDirection: 'column',
-    marginTop: '40px',
+    margin: '40px 0px',
     padding: '20px',
-    background:
-    'linear-gradient(90deg,rgba(237,157,11,1) 0%, rgba(245,130,32,1) 50%, rgba(249,98,9,1) 100%)',
-    width: '60%',
     borderRadius: '12px',
     alignItems: 'center',
+    backgroundColor: '#faf9f7',
     WebkitBoxShadow: '5px 5px 20px 0px rgba(0,0,0,0.5)',
     MozBoxShadow: '5px 5px 20px 0px rgba(0,0,0,0.5)',
     boxShadow: '5px 5px 20px 0px rgba(0,0,0,0.5)',
@@ -35,14 +34,30 @@ const styles = {
     alignItems: 'flex-start',
   },
   subServicesTitleContainer: {
+    zIndex: '1',
     display: 'flex',
     justifyContent: 'space-between',
     width: '100%',
   },
+  subServicesTitleContainerGutter: {
+    flexDirection: 'column',
+    zIndex: '1',
+    display: 'flex',
+  },
   bodyText: {
+    width: '50%',
     marginTop: '20px',
     marginBottom: '20px',
-    color: '#fff',
+    fontSize: '18px',
+    color: '#000',
+  },
+  tableTitle: {
+    fontSize: '18px',
+    fontWeight: 'bold',
+  },
+  pText: {
+    margin: '10px 0px',
+    width: '80%',
   },
 };
 

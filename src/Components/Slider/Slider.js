@@ -1,14 +1,32 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import {sliderData} from './slider-data';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import {Carousel} from 'react-responsive-carousel';
-const Slider = () => {
+import {motion} from 'framer-motion/dist/framer-motion';
+const Slider = ({sliderData, autoPlay}) => {
+  const container = {
+    hidden: {opacity: 0, scale: 1},
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
   return (
     <div className="slider">
-      <Carousel autoPlay infiniteLoop showThumbs={false}>
+      <Carousel autoPlay={autoPlay} infiniteLoop showThumbs={false} showStatus={false} showIndicators={false}>
         {sliderData.map((slide) => (
           <div key={slide.image}>
-            <img alt="" src={slide.image} />
+            <motion.img
+              variants={container}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{once: false, amount: 0.1}}
+              alt=""
+              style={{borderRadius: '12px'}}
+              src={slide.image} />
             <p className="legend">{slide.desc}</p>
           </div>
         ))}

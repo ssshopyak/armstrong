@@ -1,21 +1,18 @@
-import React, {useRef} from 'react';
+import React, {useState} from 'react';
 import styles from './HomeStyle';
 import {motion} from 'framer-motion/dist/framer-motion';
-import {Navbar} from '../Components/Navbar';
+import {sliderData} from '../Components/Slider/slider-data';
 import Slider from '../Components/Slider/Slider';
 import aboutus from '../images/aboutus.jpg';
-import {Footer} from '../Components/Footer';
+
 const Home = () => {
-  const container = {
-    hidden: {opacity: 0, scale: 0.5},
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 1,
-      },
+  const aboutUsPhotos = [
+    {
+      image: aboutus,
+      heading: 'Slide One',
+      desc: 'This is the description of slide one Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi quos quas, voluptatum nesciunt illum exercitationem.',
     },
-  };
+  ];
   const text = {
     hidden: {opacity: 0, x: 100},
     visible: {
@@ -26,38 +23,33 @@ const Home = () => {
       },
     },
   };
-  const windowSize = useRef([window.innerWidth, window.innerHeight]);
-  const isMobile = windowSize.current[0] < 1000;
+  const [windowSize] = useState(window.innerWidth);
+  const isMobile = windowSize < 1000;
   console.log(isMobile);
   return (
     <div style={styles.conatiner}>
-      <Navbar />
-      <div style={{marginTop: '100px', zIndex: '1'}}>
-        <Slider/>
+      <div style={{zIndex: '1', width: '100%'}}>
+        <Slider sliderData={sliderData} autoPlay={true} />
       </div>
       <div>
         <div
           style={{
             display: 'flex',
             flexDirection: !isMobile ? 'row' : 'column',
-            marginTop: '25px',
+            margin: '25px 0px',
             justifyContent: 'space-around',
             alignItems: 'center',
           }}
         >
-          <motion.img
-            variants={container}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{once: false, amount: 0.1}}
-            src={aboutus}
-            alt='aboutus'
+          <div
             style={{
               borderRadius: '24px',
-              width: isMobile ? '90%' : '',
+              width: isMobile ? '90%' : '30%',
               marginLeft: !isMobile ? '50px': null,
             }}
-          />
+          >
+            <Slider sliderData={aboutUsPhotos} autoPlay={false} />
+          </div>
           <motion.span
             variants={text}
             initial="hidden"
@@ -76,7 +68,7 @@ const Home = () => {
                 width: '100%',
                 display: 'flex',
                 marginBottom: '20px',
-                color: '#F58220',
+                color: '#000',
                 textAlign: 'right',
               }}
             >
@@ -93,7 +85,6 @@ const Home = () => {
           </motion.span>
         </div>
       </div>
-      <Footer/>
     </div>
   );
 };

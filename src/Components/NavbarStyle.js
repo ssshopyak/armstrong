@@ -1,13 +1,12 @@
 const styles = {
   navbarContainer: {
-    zIndex: '2',
+    zIndex: '3',
     width: '100%',
     position: 'fixed',
-    marginTop: '-100px',
+    top: '0',
     height: '100px',
-    backgroundColor: '#fff',
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   navbarParts: {
@@ -22,7 +21,6 @@ const styles = {
     alignItems: 'center',
   },
   serviceContainer: {
-    display: 'flex',
     flexDirection: 'column',
     backgroundColor: '#fff',
     padding: '15px',

@@ -1,0 +1,7 @@
+export const HouseCleanText = [
+  'Maintaining a clean home is essential to your health, happiness, and overall well-being. At Armstrong Housing LLC, we understand the importance of a clean and healthy living space, and that`s why we offer comprehensive house cleaning services to meet your needs.',
+  'Our team of experts is skilled and experienced in providing a wide range of house cleaning services, including one-time cleans, move in/move out cleaning, apartment cleaning, and house cleaning & sanitizing. We use only the best materials and equipment to ensure that your home is clean, fresh, and healthy.',
+  'We offer apartment cleaning services to help you keep your living space clean and organized. Our house cleaning & sanitizing services are perfect for those who want to maintain a healthy and clean living environment, free from germs and bacteria.',
+  'We understand that every home is unique, and that`s why we offer customized solutions to meet your individual needs and budget. Our team will work with you to create a cleaning plan tailored to your requirements, ensuring your home is always clean, fresh, and healthy.',
+  'Contact us today to learn more about our house cleaning services and how we can help you maintain a clean and healthy living space. With our comprehensive house cleaning services, we have everything you need to keep your home clean, fresh, and healthy, year-round.',
+];

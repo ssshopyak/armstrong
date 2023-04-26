@@ -1,18 +1,21 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from './NavbarStyle';
 import {motion} from 'framer-motion/dist/framer-motion';
-import logo from '../images/Logo.png';
-import {Link, useHistory} from 'react-router-dom';
+import logoBlack from '../images/logoBlack.png';
+import logoWhite from '../images/logoWhite.png';
+import {Link, useHistory, useLocation} from 'react-router-dom';
 import down from '../images/down.png';
-import menu from '../images/menu.svg';
+import menuWhite from '../images/menuWhite.svg';
+import menuBlack from '../images/menuBlack.svg';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 
 export const Navbar = () => {
+  const location = useLocation();
   const history = useHistory();
   const links = ['About us', 'Services', 'FAQs'];
-  const windowSize = useRef([window.innerWidth, window.innerHeight]);
-  const isMobile = windowSize.current[0] < 850;
+  const [windowSize] = useState(window.innerWidth);
+  const isMobile = windowSize < 850;
   const [isOpenService, setIsOpenService] = useState(false);
   const [
     isOpenCleaningSubService,
@@ -20,6 +23,7 @@ export const Navbar = () => {
   ] = useState(false);
   const [isOpenOutdoorSubService, setIsOpenOutdoorSubService] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrollStarted, setIsScrollStarted] = useState(true);
 
   const handleOpenCleaningService = () => {
     setIsOpenCleaningSubService(!isOpenCleaningSubService);
@@ -62,18 +66,36 @@ export const Navbar = () => {
     hidden: {opacity: 0, x: 0, scale: 0.1},
   };
 
-  return (
+  const listenScrollEvent = (event) => {
+    if (window.scrollY > 10) {
+      return setIsScrollStarted(true);
+    } else if (location.pathname === '/') {
+      return setIsScrollStarted(false);
+    }
+  };
 
-    <><div style={styles.navbarContainer}>
+  useEffect(() => {
+    window.addEventListener('scroll', listenScrollEvent, false);
+    if (location.pathname === '/') {
+      setIsScrollStarted(false);
+    } else {
+      setIsScrollStarted(true);
+    }
+    return () =>
+      window.removeEventListener('scroll', listenScrollEvent, false);
+  }, [location]);
+
+  return (
+    <><div style={{...styles.navbarContainer, backgroundColor: isScrollStarted ? '#fff' : null}}>
       <div style={styles.navbarParts}>
         <Link to='/'>
-          <img src={logo} alt='Armstrong'style={{height: '80px'}} />
+          <img src={isScrollStarted ? logoBlack : logoWhite} alt='Armstrong'style={{height: '100px', marginLeft: isMobile ? '10px' : '60px'}} />
         </Link>
       </div>
       {isMobile ?
                 (
                     <>
-                      <img src={menu} alt='=' onClick={toggleDrawer} />
+                      <img src={isScrollStarted ? menuBlack : menuWhite} alt='=' onClick={toggleDrawer} style={{marginRight: '10px'}} />
                     </>
                 ) :
                 (
@@ -81,13 +103,14 @@ export const Navbar = () => {
                       <div style={styles.alignItemsCenter}>
                         {links.map((link) => {
                           return (
-                            <div key={link} style={styles.flexDirectionRow}>
+                            <div key={link} style={styles.flexDirectionRow} id = {link === 'Services' ? 'linkHoverServices' : 'linkHover'}>
                               <Link
-                                to={`/${link === 'About us' ? 'About' : link}`}
+                                to={`/${link === 'FAQs' ? 'FAQs' : ''}`}
                                 style={styles.alignItemsCenter}>
                                 <span
-                                  className='linkHover'
+                                  className = 'linkHover'
                                   style={{
+                                    backgroundImage: isScrollStarted ? 'linear-gradient(to right,#F58220,#F58220 50%,#000 50%)':'linear-gradient(to right,#F58220,#F58220 50%,#fff 50%)',
                                     marginLeft: '10px',
                                     marginRight: '10px',
                                   }}
@@ -100,19 +123,16 @@ export const Navbar = () => {
                                     <img
                                       src={down}
                                       alt='v'
-                                      style={{
-                                        height: '24px',
-                                        transition: 'transform .5s',
-                                        transform: isOpenService ? 'rotate(180deg)' : 'rotate(0deg)',
-                                      }}
-                                      onClick={handleOpenService} />
+                                      className='serviceMenuIcon'
+                                    />
                                 ) : null}
-                              {link === 'Services' & isOpenService ?
+                              {link === 'Services' ?
                                 (
                                     <motion.div
                                       initial="hidden"
                                       animate="visible"
                                       variants={list}
+                                      className='hoverNavBar'
                                       style={styles.serviceContainer}>
                                       <motion.span
                                         variants={item}
@@ -135,7 +155,9 @@ export const Navbar = () => {
                                       </motion.span>
                                       <motion.hr variants={item} />
                                       <motion.span variants={item} className='linkHover' style={styles.services}>
-                                        <span>{'Outdoor services & landscaping services'}</span>
+                                        <span onClick={()=>{
+                                          history.push('/Outdoor');
+                                        }}>{'Outdoor services & landscaping services'}</span>
                                         <img
                                           src={down}
                                           alt='v'
@@ -151,14 +173,32 @@ export const Navbar = () => {
                                       {isOpenOutdoorSubService ?
                                             (
                                                 <div style={styles.subServices}>
-                                                  <span style={styles.subService}>{'Pawer washing'}</span>
-                                                  <span style={styles.subService}>{'Window washing'}</span>
-                                                  <span style={styles.subService}>{'Gutter services'}</span>
-                                                  <span style={styles.subService}>{'Landscaping services'}</span>
+                                                  <span
+                                                    onClick={()=>{
+                                                      history.push('/Power');
+                                                    }}
+                                                    style={styles.subService}>{'Power washing'}</span>
+                                                  <span
+                                                    onClick={()=>{
+                                                      history.push('/Window');
+                                                    }}
+                                                    style={styles.subService}>{'Window washing'}</span>
+                                                  <span
+                                                    onClick={()=>{
+                                                      history.push('/Gutter');
+                                                    }}
+                                                    style={styles.subService}>{'Gutter services'}</span>
+                                                  <span
+                                                    onClick={()=>{
+                                                      history.push('/Landscaping');
+                                                    }}
+                                                    style={styles.subService}>{'Landscaping services'}</span>
                                                 </div>
                                             ) : null}
                                       <motion.span variants={item} className='linkHover' style={styles.services}>
-                                        <span>{'House Cleaning services'}</span>
+                                        <span onClick={()=>{
+                                          history.push('/Houseclean');
+                                        }}>{'House Cleaning services'}</span>
                                         <img
                                           src={down}
                                           alt='v'
@@ -175,18 +215,30 @@ export const Navbar = () => {
                                             (
                                                 <div style={styles.subServices}>
                                                   <span
+                                                    onClick={()=>{
+                                                      history.push('/Houseclean');
+                                                    }}
                                                     style={styles.subService}>
                                                     {'House Cleaning & Sanitizing'}
                                                   </span>
                                                   <span
+                                                    onClick={()=>{
+                                                      history.push('/Houseclean');
+                                                    }}
                                                     style={styles.subService}>
                                                     {'Apartment Cleaning & Sanitizing'}
                                                   </span>
                                                   <span
+                                                    onClick={()=>{
+                                                      history.push('/Houseclean');
+                                                    }}
                                                     style={styles.subService}>
                                                     {'Move In/Move Out Cleaning'}
                                                   </span>
                                                   <span
+                                                    onClick={()=>{
+                                                      history.push('/Houseclean');
+                                                    }}
                                                     style={styles.subService}>
                                                     {'One-Time Cleans'}
                                                   </span>
@@ -198,8 +250,20 @@ export const Navbar = () => {
                           );
                         })}
                       </div>
-                      <div style={styles.navbarParts}>
-                        <Link to='/'><span className='linkHover'>Contact us</span></Link>
+                      <div style={{marginRight: '60px'}}>
+                        <Link
+                          to='/Contact'
+                        >
+                          <span
+                            className='linkHover'
+                            style={{
+                              backgroundImage: isScrollStarted ?
+                                'linear-gradient(to right,#F58220,#F58220 50%,#000 50%)' :
+                                'linear-gradient(to right,#F58220,#F58220 50%,#fff 50%)'}}
+                          >
+                            Contact us
+                          </span>
+                        </Link>
                       </div>
                     </>
                 )}
@@ -215,7 +279,7 @@ export const Navbar = () => {
           return (
             <div key={link} style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
               <div style={styles.flexDirectionRow}>
-                <Link to={`/${link === 'About us' ? 'About' : link}`} style={styles.alignItemsCenter}>
+                <Link to={`/${link === 'FAQs' ? 'FAQs' : ''}`} style={styles.alignItemsCenter}>
                   <span className='linkHover' style={{marginLeft: '10px', marginRight: '10px'}}>{link}</span>
                 </Link>
                 {
@@ -257,7 +321,9 @@ export const Navbar = () => {
                       </span>
                       <hr />
                       <span className='linkHover' style={styles.services}>
-                        <span>{'Outdoor services & landscaping services'}</span>
+                        <span onClick={()=>{
+                          history.push('/Outdoor');
+                        }}>{'Outdoor services & landscaping services'}</span>
                         <img
                           src={down}
                           alt='v'
@@ -273,14 +339,32 @@ export const Navbar = () => {
                       {isOpenOutdoorSubService ?
                             (
                                 <div style={styles.subServices}>
-                                  <span style={styles.subService}>{'Pawer washing'}</span>
-                                  <span style={styles.subService}>{'Window washing'}</span>
-                                  <span style={styles.subService}>{'Gutter services'}</span>
-                                  <span style={styles.subService}>{'Landscaping services'}</span>
+                                  <span
+                                    onClick={()=>{
+                                      history.push('/Power');
+                                    }}
+                                    style={styles.subService}>{'Power washing'}</span>
+                                  <span
+                                    onClick={()=>{
+                                      history.push('/Window');
+                                    }}
+                                    style={styles.subService}>{'Window washing'}</span>
+                                  <span
+                                    onClick={()=>{
+                                      history.push('/Gutter');
+                                    }}
+                                    style={styles.subService}>{'Gutter services'}</span>
+                                  <span
+                                    onClick={()=>{
+                                      history.push('/Landscaping');
+                                    }}
+                                    style={styles.subService}>{'Landscaping services'}</span>
                                 </div>
                             ) : null}
                       <span className='linkHover' style={styles.services}>
-                        <span>{'House Cleaning services'}</span>
+                        <span onClick={()=>{
+                          history.push('/Houseclean');
+                        }}>{'House Cleaning services'}</span>
                         <img
                           src={down}
                           alt='v'
@@ -296,10 +380,34 @@ export const Navbar = () => {
                       {isOpenCleaningSubService ?
                             (
                                 <div style={styles.subServices}>
-                                  <span style={styles.subService}>{'House Cleaning & Sanitizing'}</span>
-                                  <span style={styles.subService}>{'Apartment Cleaning & Sanitizing'}</span>
-                                  <span style={styles.subService}>{'Move In/Move Out Cleaning'}</span>
-                                  <span style={styles.subService}>{'One-Time Cleans'}</span>
+                                  <span
+                                    onClick={()=>{
+                                      history.push('/Houseclean');
+                                    }}
+                                    style={styles.subService}>
+                                    {'House Cleaning & Sanitizing'}
+                                  </span>
+                                  <span
+                                    onClick={()=>{
+                                      history.push('/Houseclean');
+                                    }}
+                                    style={styles.subService}>
+                                    {'Apartment Cleaning & Sanitizing'}
+                                  </span>
+                                  <span
+                                    onClick={()=>{
+                                      history.push('/Houseclean');
+                                    }}
+                                    style={styles.subService}>
+                                    {'Move In/Move Out Cleaning'}
+                                  </span>
+                                  <span
+                                    onClick={()=>{
+                                      history.push('/Houseclean');
+                                    }}
+                                    style={styles.subService}>
+                                    {'One-Time Cleans'}
+                                  </span>
                                 </div>
                             ) : null}
                     </div>
@@ -309,7 +417,7 @@ export const Navbar = () => {
         })}
       </div>
       <div style={styles.navbarParts}>
-        <Link to='/'><span className='linkHover'>Contact us</span></Link>
+        <Link to='/Contact'><span className='linkHover'>Contact us</span></Link>
       </div>
     </Drawer>
     </>
