@@ -1,0 +1,18 @@
+export const FaqsText = [
+  '1. What is property preservation maintenance?',
+  'Property preservation maintenance involves maintaining and preserving a property to keep it in good condition. This can include tasks such as cleaning, repairing, and securing a property.',
+  '2. What types of inspections does your company offer?',
+  'We offer a variety of inspections, including property inspections, safety inspections, and code compliance inspections. We also offer customized inspection services to meet the specific needs of our clients.',
+  '3. What house cleaning services do you offer?',
+  'We offer a range of house cleaning services, including deep cleaning, regular cleaning, move-in and move-out cleaning, and post-construction cleaning. Our cleaning services can be customized to meet the specific needs of each client.',
+  '4. What is professional property maintenance?',
+  'Professional property maintenance involves maintaining a property to a high standard, in order to enhance its value and appeal. This can include tasks such as landscaping, painting, and general repairs.',
+  '5. What outdoor services do you offer?',
+  'We offer a range of outdoor services, including lawn care, tree trimming, power washing, and snow removal. Our outdoor services can be customized to meet the specific needs of each client.',
+  '6. Do you offer Christmas and holiday lighting decoration services?',
+  'Yes, we offer Christmas and holiday lighting decoration services. We can provide customized lighting solutions for both residential and commercial properties.',
+  '7. How do I schedule services with your company?',
+  'You can schedule services with us by contacting our customer service team via phone, email, or our online booking system. We will work with you to schedule services at a time that is convenient for you.',
+  '8. What sets your company apart from other property maintenance and cleaning companies?',
+  'We pride ourselves on providing high-quality services that are customized to meet the specific needs of each client. We also use eco-friendly cleaning products and sustainable landscaping practices to minimize our impact on the environment. Additionally, our team of experienced professionals is committed to delivering exceptional customer service.',
+];

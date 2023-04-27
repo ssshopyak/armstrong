@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import {Switch, Route, BrowserRouter, HashRouter} from 'react-router-dom';
 import Home from './Screens/Home';
 import Christmas from './Screens/Christmas';
 import About from './Screens/About';
@@ -17,7 +17,7 @@ import {Footer} from './Components/Footer';
 
 const App = () => {
   return (
-    <BrowserRouter basename='/'> {/* Не забути вернути на BrowserRouter*/}
+    <HashRouter basename='/'> {/* Не забути вернути на BrowserRouter*/}
       <Navbar/>
       <Switch>
         <Route exact path='/' component={() => <Home/>} />
@@ -34,7 +34,7 @@ const App = () => {
         <Route path='/Window' component={()=> <Windows/>} />
       </Switch>
       <Footer/>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
