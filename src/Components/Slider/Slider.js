@@ -3,7 +3,7 @@ import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import {Carousel} from 'react-responsive-carousel';
 import {motion} from 'framer-motion/dist/framer-motion';
-const Slider = ({sliderData, autoPlay}) => {
+const Slider = ({sliderData, autoPlay, isBorder = true}) => {
   const container = {
     hidden: {opacity: 0, scale: 1},
     visible: {
@@ -25,7 +25,7 @@ const Slider = ({sliderData, autoPlay}) => {
               whileInView="visible"
               viewport={{once: false, amount: 0.1}}
               alt=""
-              style={{borderRadius: '12px'}}
+              style={{borderRadius: isBorder ? '12px' : '0px'}}
               src={slide.image} />
             <p className="legend">{slide.desc}</p>
           </div>

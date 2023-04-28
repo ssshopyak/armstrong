@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <div style={styles.conatiner}>
       <div style={{zIndex: '1', width: '100%'}}>
-        <Slider sliderData={sliderData} autoPlay={true} />
+        <Slider sliderData={sliderData} autoPlay={true} isBorder={false} />
       </div>
       <div>
         <div
