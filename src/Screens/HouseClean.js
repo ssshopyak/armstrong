@@ -5,7 +5,6 @@ import {ContentBlock} from '../Components/ContentBlock';
 import {sliderData} from './HouseCleanData';
 import {HouseCleanText} from './HouseCleanText';
 import houseClean1 from '../images/houseClean1.jpg';
-import houseClean2 from '../images/houseClean2.jpg';
 import houseClean3 from '../images/houseClean3.png';
 import houseClean4 from '../images/houseClean4.jpg';
 
@@ -38,23 +37,15 @@ const HouseClean = () => {
     },
   };
   const [windowSize] = useState(window.innerWidth);
-  const isMobile = windowSize < 850;
+  const isMobile = windowSize <= 1280;
   const services = [
     {
-      title: 'House Cleaning & Sanitizing',
+      title: 'Cleaning & Sanitizing',
       image: houseClean1,
       data: [
         'Our house cleaning and sanitizing services are designed to meet the unique needs of your home and family. We offer regular cleaning services, deep cleaning services, and one-time cleaning services, as well as customized cleaning plans tailored to your specific needs.',
         'During our cleaning and sanitizing process, we pay special attention to frequently touched surfaces such as doorknobs, light switches, countertops, and handles, where germs and bacteria can accumulate. We use EPA-registered disinfectants that are effective against a broad spectrum of viruses and bacteria, including COVID-19, to ensure that your home is clean and healthy.',
         'At Armstrong Housing LLC, we take pride in providing our customers with a clean, healthy, and safe living environment. Contact us today to learn more about our house cleaning and sanitizing services, and how we can help you maintain a clean and healthy home. With our professional cleaning services, you can enjoy peace of mind knowing that your home is clean, sanitized, and safe for you and your family.',
-      ],
-    },
-    {
-      title: 'Apartment Cleaning & Sanitizing',
-      image: houseClean2,
-      data: [
-        'At our company, we understand that maintaining a clean and sanitary living space is essential for your health and wellbeing. That`s why we offer a comprehensive apartment cleaning and sanitizing service to ensure your home is free from germs, dust, and allergens. Our professional cleaning team is trained to provide exceptional service and uses the latest cleaning techniques and equipment to achieve outstanding results.',
-        'Our apartment cleaning and sanitizing service includes a thorough cleaning of all living spaces, including bedrooms, bathrooms, living rooms, and kitchens. We pay attention to every detail, from wiping down surfaces to vacuuming carpets and sanitizing high-touch areas such as doorknobs and light switches. We use only eco-friendly and non-toxic cleaning products that are safe for you, your family, and your pets. With our service, you can enjoy a spotless and germ-free living space that promotes health and wellbeing. Contact us today to schedule your apartment cleaning and sanitizing service and experience the difference of a truly clean home.',
       ],
     },
     {
@@ -123,9 +114,10 @@ const HouseClean = () => {
                 >
                   <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: isMobile ? 'column' : 'row'}}>
                     <div style={{...styles.subServicesTitleContainerGutter, width: isMobile ? '100%' : '50%'}}>
-                      <h4 style={{color: '#000', textAlign: 'left', fontSize: '20px'}}>
+                      <h4 style={{color: '#000', textAlign: 'center', fontSize: '20px'}}>
                         {service.title}
                       </h4>
+                      <img src={service.image} alt='hello' style={{width: isMobile ? '100%' : '45%', borderRadius: '12px'}}/>
                       {
                         service.data.map((subTitle) => (
                           <span
@@ -141,8 +133,25 @@ const HouseClean = () => {
                           </span>
                         ))
                       }
+                      <motion.table id="customers" variants={item}>
+                        <tr>
+                          <th>House Type</th>
+                          <th>Price</th>
+                        </tr>
+                        <tr>
+                          <td>One story</td>
+                          <td>$250-$350</td>
+                        </tr>
+                        <tr>
+                          <td>Two story</td>
+                          <td>$350-$450</td>
+                        </tr>
+                        <tr>
+                          <td>Three story</td>
+                          <td>$450-$550</td>
+                        </tr>
+                      </motion.table>
                     </div>
-                    <img src={service.image} alt='hello' style={{width: isMobile ? '100%' : '45%', borderRadius: '12px'}}/>
                   </div>
                 </motion.div>
               ))

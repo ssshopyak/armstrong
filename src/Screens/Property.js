@@ -39,7 +39,7 @@ const Property = () => {
     },
   };
   const [windowSize] = useState(window.innerWidth);
-  const isMobile = windowSize < 850;
+  const isMobile = windowSize <= 1280;
   const services = [
     {
       title: 'Construction & Repair Services',

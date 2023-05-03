@@ -14,6 +14,7 @@ import Landscaping from './Screens/Landscaping';
 import Windows from './Screens/Window';
 import {Navbar} from './Components/Navbar';
 import {Footer} from './Components/Footer';
+import Galery from './Screens/Galery';
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
         <Route path='/Gutter' component={()=> <Gutter/>} />
         <Route path='/Landscaping' component={()=> <Landscaping/>} />
         <Route path='/Window' component={()=> <Windows/>} />
+        <Route path='/Galery' component={()=> <Galery/>} />
       </Switch>
       <Footer/>
     </HashRouter>

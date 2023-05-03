@@ -56,7 +56,7 @@ const Home = () => {
             whileInView="visible"
             style={{
               whiteSpace: 'pre-line',
-              textAlign: !isMobile ? 'right' : 'center',
+              textAlign: 'center',
               fontSize: '18px',
             }}
           >
@@ -64,12 +64,12 @@ const Home = () => {
               style={{
                 fontSize: '48px',
                 fontWeight: 'bold',
-                justifyContent: !isMobile ? 'end': 'center',
+                justifyContent: 'center',
                 width: '100%',
                 display: 'flex',
                 marginBottom: '20px',
                 color: '#000',
-                textAlign: 'right',
+                textAlign: 'center',
               }}
             >
                 About Us

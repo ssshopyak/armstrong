@@ -34,7 +34,7 @@ const Power = () => {
     },
   };
   const [windowSize] = useState(window.innerWidth);
-  const isMobile = windowSize < 850;
+  const isMobile = windowSize <= 1280;
   return (
     <div style={styles.conatiner}>
       <motion.div

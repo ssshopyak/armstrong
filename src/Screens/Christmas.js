@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import styles from './PropertyStyle';
-import {useHistory} from 'react-router-dom';
 import {motion} from 'framer-motion/dist/framer-motion';
-import {Button} from '../Components/Button';
 import small from '../images/house_small.webp';
 import medium from '../images/house_medium.webp';
 import large from '../images/house_large.webp';
@@ -10,6 +8,8 @@ import extraLarge from '../images/house_extra_large.webp';
 import christmas from '../images/christmas.webp';
 import santa from '../images/santa.png';
 import christmasPhoto from '../images/christmasPhoto.jpg';
+import {ContentBlock} from '../Components/ContentBlock';
+import {ChristmasText} from './ChristmasText';
 
 const Christmas = () => {
   const container = {
@@ -40,7 +40,9 @@ const Christmas = () => {
     },
   };
   const [windowSize] = useState(window.innerWidth);
-  const isMobile = windowSize < 1000;
+  const [isDetailInfoOpen, setIsDetailInfoOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+  const isMobile = windowSize <= 1280;
   const services = [
     {
       title: 'Small',
@@ -63,7 +65,17 @@ const Christmas = () => {
       price: '1700',
     },
   ];
-  const history = useHistory();
+
+  const handleServices = (title) => {
+    if (title === selectedService && isDetailInfoOpen) {
+      setIsDetailInfoOpen(false);
+      setSelectedService(null);
+    } else {
+      setIsDetailInfoOpen(true);
+      setSelectedService(title);
+    }
+  };
+
   return (
     <div style={styles.conatiner}>
       <motion.div
@@ -78,48 +90,12 @@ const Christmas = () => {
           </h1>
           <h1 style={{fontSize: '56px', display: 'flex', alignItems: 'center'}}>than you think <img src={santa} alt='hello)' style={{height: '56px'}}/></h1>
         </div>
-        <div style={{...styles.textContainer, width: isMobile ? '85%' : '60%'}}>
-          <div style={{display: 'flex', width: '100%', margin: '20px 0px'}}>
-            <span style={styles.bodyText}>
-              <h2 style={{color: '#000'}}>
-                Christmas Light Installation
-              </h2>
-              <p style={styles.pText}>
-                The holiday season is a special time of year
-                that is filled with the warmth of family,
-                friends and memories.
-              </p>
-              <p style={styles.pText}>
-                Professional decorative lighting
-                and displays greatly enhance the special experience that comes
-                from this joyous time. For over 30 years, the professional designers,
-                installers and staff of Christmas Decor have been a part
-                of helping families and businesses create a magical experience
-                for loved ones and clients.
-              </p>
-              <p style={styles.pText}>
-                Our highly trained staff can provide the one stop solution,
-                comprehensive service program you are looking for to turn your
-                unique decorating needs into reality.
-              </p>
-              <p style={styles.pText}>
-                We offer the best in design consultation,
-                installation, maintenance and prompt take down services.
-                The Christmas Décor team will work with you to design
-                a display concept that will perfectly fit your goals and budget.
-              </p>
-            </span>
-            <img src={christmasPhoto} style={{width: '50%', marginTop: '30px', borderRadius: '12px'}}/>
-          </div>
-          <Button
-            onClick={()=>{
-              history.push('/');
-            }}
-            title='Get started'
-            backgroundColor={'#fff'}
-            color={'#000'}
-          />
-        </div>
+        <ContentBlock
+          title={'Christmas Light Installation'}
+          isSlider={false}
+          bodyText={ChristmasText}
+          photo={christmasPhoto}
+        />
         <div style={{...styles.textContainer, width: isMobile ? '85%' : '60%'}}>
           <h2 style={{color: '#000', marginBottom: '20px'}}>What is the price of Christmas lights?</h2>
           <motion.div
@@ -128,8 +104,9 @@ const Christmas = () => {
             animate="visible"
             style={{
               display: 'flex',
-              flexWrap: 'wrap',
+              flexDirection: 'column',
               justifyContent: 'center',
+              alignItems: 'center',
             }}
           >
             {
@@ -137,10 +114,13 @@ const Christmas = () => {
                 <motion.div
                   variants={item}
                   className='subServicesContainer'
+                  onClick = {()=>{
+                    handleServices(service.title);
+                  }}
                   key={service.title}
                   style={{
                     ...styles.subServicesContainer,
-                    width: isMobile ? '80%' : '30%',
+                    width: isMobile ? '80%' : '100%',
                   }}
                 >
                   <img src={christmas} alt='christmas' style={{height: '80px', position: 'absolute', transform: 'scale(-1, 1)', marginTop: '-50px', marginLeft: '-50px', zIndex: '0'}}/>
@@ -158,6 +138,14 @@ const Christmas = () => {
                       ${service.price}+
                     </h3>
                   </div>
+                  { isDetailInfoOpen && selectedService === service.title ?
+                   (
+                    <div style={{height: '100px', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                      <p style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>detail info</p>
+                    </div>
+                   ) : null
+                  }
+
                 </motion.div>
               ))
             }

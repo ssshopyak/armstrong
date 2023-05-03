@@ -2,9 +2,11 @@ import React, {useState} from 'react';
 import styles from './PropertyStyle';
 import {motion} from 'framer-motion/dist/framer-motion';
 import {useHistory} from 'react-router-dom';
-import {FaqsText} from './FaqsText';
+import {sliderData} from './GaleryData';
+import Slider from '../Components/Slider/Slider';
 import {Button} from '../Components/Button';
-const Faqs = () => {
+import photo from '../images/Photo.png';
+const Galery = () => {
   const mainContainer = {
     hidden: {opacity: 0},
     visible: {
@@ -26,21 +28,11 @@ const Faqs = () => {
         style={styles.bodyContainer}
       >
         <div style={{width: isMobile ? '85%' : null}}>
-          <h1 style={{fontSize: '56px'}}>
-          Frequently Asked Question(s)
-          </h1>
+          <h1 style={{fontSize: '56px', display: 'flex', alignItems: 'center'}}>Photos <img src={photo} alt='hello)' style={{height: '56px'}}/></h1>
         </div>
         <div style={{...styles.textContainer, width: isMobile ? '85%' : '60%'}}>
-          <div style={{display: 'flex', width: '100%', margin: '20px 0px', flexDirection: isMobile ? 'column' : 'row'}}>
-            <span style={{...styles.bodyText, width: isMobile ? '100%' : '100%'}}>
-              {
-                FaqsText.map((text) => (
-                  <p key={text} style={{...styles.pText, width: isMobile ? '100%' : '100%'}}>
-                    {text}
-                  </p>
-                ))
-              }
-            </span>
+          <div style={{width: isMobile ? null : '100%', margin: '20px 0px'}}>
+            <Slider sliderData={sliderData} autoPlay={true}/>
           </div>
           <Button
             onClick={()=>{
@@ -57,4 +49,4 @@ const Faqs = () => {
 };
 
 
-export default Faqs;
+export default Galery;

@@ -15,8 +15,26 @@ const Windows = () => {
       },
     },
   };
+  const item = {
+    hidden: {y: 20, opacity: 0},
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+  const container = {
+    hidden: {opacity: 1, scale: 0},
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
   const [windowSize] = useState(window.innerWidth);
-  const isMobile = windowSize < 850;
+  const isMobile = windowSize <= 1280;
   return (
     <div style={styles.conatiner}>
       <motion.div
@@ -39,6 +57,57 @@ const Windows = () => {
           sliderData={sliderData}
           bodyText={WindowText}
         />
+        <div style={{...styles.textContainer, width: isMobile ? '85%' : '60%'}}>
+          <h2 style={{color: '#000'}}>Pricing 2023</h2>
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="visible"
+            style={{
+              width: isMobile ? '85%' : '60%',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+            }}
+          >
+            <motion.table id="customers" variants={item}>
+              <tr>
+                <th>House Type</th>
+                <th>Price</th>
+              </tr>
+              <tr>
+                <td>One story</td>
+                <td>$250-$350</td>
+              </tr>
+              <tr>
+                <td>Two story</td>
+                <td>$350-$450</td>
+              </tr>
+              <tr>
+                <td>Three story</td>
+                <td>$450-$550</td>
+              </tr>
+            </motion.table>
+            <motion.table id='customers' variants={item}>
+              <tr>
+                <th>Garage type</th>
+                <th>Price</th>
+              </tr>
+              <tr>
+                <td>One car</td>
+                <td>$120</td>
+              </tr>
+              <tr>
+                <td>Two car</td>
+                <td>$150</td>
+              </tr>
+              <tr>
+                <td>Three car</td>
+                <td>$190</td>
+              </tr>
+            </motion.table>
+          </motion.div>
+        </div>
       </motion.div>
     </div>
   );

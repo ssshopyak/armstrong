@@ -250,13 +250,28 @@ export const Navbar = () => {
                           );
                         })}
                       </div>
-                      <div style={{marginRight: '60px'}}>
+                      <div style={{marginRight: '60px', display: 'flex'}}>
+                        <Link
+                          to='/Galery'
+                        >
+                          <span
+                            className='linkHover'
+                            style={{
+                              margin: '0px 10px',
+                              backgroundImage: isScrollStarted ?
+                                'linear-gradient(to right,#F58220,#F58220 50%,#000 50%)' :
+                                'linear-gradient(to right,#F58220,#F58220 50%,#fff 50%)'}}
+                          >
+                            Galery
+                          </span>
+                        </Link>
                         <Link
                           to='/Contact'
                         >
                           <span
                             className='linkHover'
                             style={{
+                              margin: '0px 10px',
                               backgroundImage: isScrollStarted ?
                                 'linear-gradient(to right,#F58220,#F58220 50%,#000 50%)' :
                                 'linear-gradient(to right,#F58220,#F58220 50%,#fff 50%)'}}

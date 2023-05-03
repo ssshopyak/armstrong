@@ -37,7 +37,7 @@ const Gutter = () => {
     },
   };
   const [windowSize] = useState(window.innerWidth);
-  const isMobile = windowSize < 850;
+  const isMobile = windowSize <= 1280;
   const services = [
     {
       title: 'Gutter cleaning',
@@ -131,6 +131,24 @@ const Gutter = () => {
                           </span>
                         ))
                       }
+                      <motion.table id="customers" variants={item}>
+                        <tr>
+                          <th>House Type</th>
+                          <th>Price</th>
+                        </tr>
+                        <tr>
+                          <td>One story</td>
+                          <td>$250-$350</td>
+                        </tr>
+                        <tr>
+                          <td>Two story</td>
+                          <td>$350-$450</td>
+                        </tr>
+                        <tr>
+                          <td>Three story</td>
+                          <td>$450-$550</td>
+                        </tr>
+                      </motion.table>
                     </div>
                     <img src={service.image} alt='hello' style={{width: isMobile ? '100%' : '45%', borderRadius: '12px'}}/>
                   </div>
