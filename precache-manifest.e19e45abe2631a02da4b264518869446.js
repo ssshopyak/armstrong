@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "330175048c2a91232cfe7d59978d543f",
+    "revision": "812ae8fb0cbf29e148fa5b338e85c184",
     "url": "/armstrong/index.html"
   },
   {
-    "revision": "595ada8d01fb3e3d7be3",
+    "revision": "0853bd1610685772d16d",
     "url": "/armstrong/static/css/2.80de8d04.chunk.css"
   },
   {
-    "revision": "16ab012c41e61f984d00",
-    "url": "/armstrong/static/css/main.4a606604.chunk.css"
+    "revision": "7d1f013a18cb02c9a1b7",
+    "url": "/armstrong/static/css/main.b91534cd.chunk.css"
   },
   {
-    "revision": "595ada8d01fb3e3d7be3",
-    "url": "/armstrong/static/js/2.4c94c998.chunk.js"
+    "revision": "0853bd1610685772d16d",
+    "url": "/armstrong/static/js/2.963895e8.chunk.js"
   },
   {
     "revision": "74e44db562299e4c6997e475287872ca",
-    "url": "/armstrong/static/js/2.4c94c998.chunk.js.LICENSE.txt"
+    "url": "/armstrong/static/js/2.963895e8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "16ab012c41e61f984d00",
-    "url": "/armstrong/static/js/main.3b782de5.chunk.js"
+    "revision": "7d1f013a18cb02c9a1b7",
+    "url": "/armstrong/static/js/main.fae59bb3.chunk.js"
   },
   {
     "revision": "d943b96d7c77e9f86339",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "cc8f7306cdde6df55836551b0c000752",
     "url": "/armstrong/static/media/Hello.cc8f7306.png"
+  },
+  {
+    "revision": "cf069c605921922b91c8b58ee6605dfe",
+    "url": "/armstrong/static/media/Photo.cf069c60.png"
   },
   {
     "revision": "ac219878fc12c1ff89804879481b1acb",
@@ -78,10 +82,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "faa2d05c753162007ec554ffedf5e89e",
     "url": "/armstrong/static/media/houseClean1.faa2d05c.jpg"
-  },
-  {
-    "revision": "6cba40c3253c971cf31576e3bb12aacb",
-    "url": "/armstrong/static/media/houseClean2.6cba40c3.jpg"
   },
   {
     "revision": "ca81d756658c9cd43a9ddc1a6ebecc26",
@@ -160,8 +160,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/armstrong/static/media/location1.2698e751.png"
   },
   {
-    "revision": "ef4537ac35656a642d0e5589b53da837",
-    "url": "/armstrong/static/media/logoBlack.ef4537ac.png"
+    "revision": "055b64609783d6b6f1004b998de68bb3",
+    "url": "/armstrong/static/media/logoBlack.055b6460.png"
   },
   {
     "revision": "edefbbe6c73d2fb1308610d51ff1362c",
