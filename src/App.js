@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route, BrowserRouter, HashRouter} from 'react-router-dom';
+import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Home from './Screens/Home';
 import Christmas from './Screens/Christmas';
 import About from './Screens/About';
@@ -18,7 +18,7 @@ import Galery from './Screens/Galery';
 
 const App = () => {
   return (
-    <HashRouter basename='/'> {/* Не забути вернути на BrowserRouter*/}
+    <BrowserRouter basename='/'> {/* Не забути вернути на BrowserRouter*/}
       <Navbar/>
       <Switch>
         <Route exact path='/' component={() => <Home/>} />
@@ -36,7 +36,7 @@ const App = () => {
         <Route path='/Galery' component={()=> <Galery/>} />
       </Switch>
       <Footer/>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 

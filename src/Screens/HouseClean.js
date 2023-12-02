@@ -113,11 +113,11 @@ const HouseClean = () => {
                   }}
                 >
                   <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: isMobile ? 'column' : 'row'}}>
-                    <div style={{...styles.subServicesTitleContainerGutter, width: isMobile ? '100%' : '50%'}}>
+                    <div style={{...styles.subServicesTitleContainerGutter, width: isMobile ? '100%' : '100%'}}>
                       <h4 style={{color: '#000', textAlign: 'center', fontSize: '20px'}}>
                         {service.title}
                       </h4>
-                      <img src={service.image} alt='hello' style={{width: isMobile ? '100%' : '45%', borderRadius: '12px'}}/>
+                      <img src={service.image} alt='hello' style={{width: isMobile ? '100%' : '100%', borderRadius: '12px'}}/>
                       {
                         service.data.map((subTitle) => (
                           <span
@@ -133,24 +133,6 @@ const HouseClean = () => {
                           </span>
                         ))
                       }
-                      <motion.table id="customers" variants={item}>
-                        <tr>
-                          <th>House Type</th>
-                          <th>Price</th>
-                        </tr>
-                        <tr>
-                          <td>One story</td>
-                          <td>$250-$350</td>
-                        </tr>
-                        <tr>
-                          <td>Two story</td>
-                          <td>$350-$450</td>
-                        </tr>
-                        <tr>
-                          <td>Three story</td>
-                          <td>$450-$550</td>
-                        </tr>
-                      </motion.table>
                     </div>
                   </div>
                 </motion.div>

@@ -10,6 +10,8 @@ const styles = {
     alignItems: 'center',
   },
   navbarParts: {
+    alignItems: 'center',
+    textAlign: 'center',
   },
   alignItemsCenter: {
     display: 'flex',

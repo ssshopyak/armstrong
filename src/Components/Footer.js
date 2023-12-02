@@ -55,7 +55,7 @@ export const Footer = () => {
           </div>
           <div style={{color: '#000', display: 'flex', flexDirection: 'column'}}>
             <span style={{color: '#000', fontWeight: 'bold'}}>Email</span>
-            <span style={{color: '#000'}}>Info@Armstrong.com</span>
+            <span style={{color: '#000'}}>armstronghousingllc@gmail.com</span>
           </div>
         </div>
       </div>
@@ -68,13 +68,6 @@ export const Footer = () => {
             style={{color: '#000', marginTop: '5px', marginBottom: '5px'}}
           >
             About us
-          </Link>
-          <Link
-            to="/regulation"
-            className='linkFotterHover'
-            style={{color: '#000', marginTop: '5px', marginBottom: '5px'}}
-          >
-            Store Regulations
           </Link>
         </div>
       </div>

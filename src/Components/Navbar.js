@@ -66,25 +66,6 @@ export const Navbar = () => {
     hidden: {opacity: 0, x: 0, scale: 0.1},
   };
 
-  const listenScrollEvent = (event) => {
-    if (window.scrollY > 10) {
-      return setIsScrollStarted(true);
-    } else if (location.pathname === '/') {
-      return setIsScrollStarted(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', listenScrollEvent, false);
-    if (location.pathname === '/') {
-      setIsScrollStarted(false);
-    } else {
-      setIsScrollStarted(true);
-    }
-    return () =>
-      window.removeEventListener('scroll', listenScrollEvent, false);
-  }, [location]);
-
   return (
     <><div style={{...styles.navbarContainer, backgroundColor: isScrollStarted ? '#fff' : null}}>
       <div style={styles.navbarParts}>
@@ -432,6 +413,7 @@ export const Navbar = () => {
         })}
       </div>
       <div style={styles.navbarParts}>
+        <Link to='/Galery'><span className='linkHover'>Galery</span></Link>
         <Link to='/Contact'><span className='linkHover'>Contact us</span></Link>
       </div>
     </Drawer>
