@@ -27,10 +27,10 @@ const Galery = () => {
         animate="visible"
         style={styles.bodyContainer}
       >
-        <div style={{width: isMobile ? '85%' : null}}>
+        <div style={{width: isMobile ? '90%' : null}}>
           <h1 style={{fontSize: '56px', display: 'flex', alignItems: 'center'}}>Photos <img src={photo} alt='hello)' style={{height: '56px'}}/></h1>
         </div>
-        <div style={{...styles.textContainer, width: isMobile ? '85%' : '60%'}}>
+        <div style={{...styles.textContainer, width: isMobile ? '90%' : '60%'}}>
           <div style={{width: isMobile ? null : '100%', margin: '20px 0px'}}>
             <Slider sliderData={sliderData} autoPlay={true}/>
           </div>
